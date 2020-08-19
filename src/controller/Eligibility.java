@@ -18,8 +18,10 @@ public class Eligibility extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	String points=request.getParameter("points");
+	EligibiltyCheck check =new EligibiltyCheck();
+	boolean spaceEligible = check.checkQuizAnswer(points);
 	
-	if(false)
+	if(spaceEligible)
 	{
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/success.html");
 		rd.forward(request, response);	
@@ -33,3 +35,5 @@ public class Eligibility extends HttpServlet {
 
 }
 }
+
+
